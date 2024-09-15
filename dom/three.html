@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>language</li>
+    </ul>
+</body>
+<script>
+    function addLanguage (langname) {
+        const li = document.createElement('li');
+        li.innerHTML = `${langname}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("typescript")
+    addLanguage("Python")
+
+    //more optimised way.....
+
+    function addOptLang (langname) {
+       const li = document.createElement('li');
+       li.appendChild(document.createTextNode(langname))
+       document.querySelector('.language').appendChild(li)
+    }
+    addOptLang("Ruby")
+
+    //Edit
+
+    const secElement = document.querySelector("li:nth-child(3)")
+    // secElement.innerHTML = "Mojo"
+    const newli = document.createElement('li')       //--> Two ways to edit. the one is line34 and second in line35-37
+    newli.innerHTML = "Mojo"
+    secElement.replaceWith(newli)
+
+    //remove 
+    const lastElement = document.querySelector("li:last-child")
+    lastElement.remove()
+
+</script>
+</html>
